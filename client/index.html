@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>FEC Demo</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div id="movie-times"></div>
+    <div id="summary"></div>
+    <div id="dada"></div>
+    <div id="review"></div>
+    
+  <!-- <script src="dada.bundle.js"></script>
+  <script src="review.bundle.js"></script>
+  <script src="summary.bundle.js"></script>
+  <script src="times.bundle.js"></script> -->
+  <script src="http://localhost:3003/bundle.js"></script>
+  <script src="http://localhost:3002/bundle.js"></script>
+  <script src="http://localhost:3013/review.bundle.js"></script>
+  <script src="http://localhost:3007/summary.bundle.js"></script>
+  <script>
+    ReactDOM.render(
+      React.createElement(Times),
+      document.getElementById('movie-times'));
+    ReactDOM.render(
+      React.createElement(Summary),
+      document.getElementById('summary'));
+    ReactDOM.render(
+      React.createElement(Related),
+      document.getElementById('dada'));
+    ReactDOM.render(
+      React.createElement(Reviews),
+      document.getElementById('review'));
+  </script>
+  </body>
+</html>
