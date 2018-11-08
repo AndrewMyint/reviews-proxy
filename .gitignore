@@ -25,3 +25,8 @@ build/
 dist/
 
 movie-times../client/times.bundle.js
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
