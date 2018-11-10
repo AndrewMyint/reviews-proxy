@@ -3,10 +3,9 @@ const proxy = require('http-proxy-middleware');
 const bodyParser = require('body-parser');
 const path = require('path');
 const compression = require('compression');
-const fetch = require('node-fetch');
 
 const app = express();
-const port = 3010;
+const port = 8081;
 
 app.use(compression());
 
@@ -36,7 +35,7 @@ app.use((request, response, next) => {
 app.use(
   '/api/movies/:genre/relatedmovies',
   proxy({
-    target: 'http://localhost:3003',
+    target: 'http://ec2-18-221-46-200.us-east-2.compute.amazonaws.com/',
     changeOrigin: true
   })
 );
@@ -46,7 +45,7 @@ app.use(
 app.use(
   '/api/movies/:movieid/rating',
   proxy({
-    target: 'http://localhost:3013',
+    target: 'http://fecservice-env.ykmr3kmu2p.us-west-1.elasticbeanstalk.com/',
     changeOrigin: true
   })
 );
@@ -54,7 +53,7 @@ app.use(
 app.use(
   '/api/movies/:movieid/reviews',
   proxy({
-    target: 'http://localhost:3013',
+    target: 'http://fecservice-env.ykmr3kmu2p.us-west-1.elasticbeanstalk.com/',
     changeOrigin: true
   })
 );
@@ -64,7 +63,7 @@ app.use(
 app.use(
   '/api/movies/:movieId/summary',
   proxy({
-    target: 'http://localhost:3007',
+    target: 'http://ec2-3-16-124-117.us-east-2.compute.amazonaws.com/',
     changeOrigin: true
   })
 );
@@ -74,26 +73,11 @@ app.use(
 app.use(
   '/api/moviesbyid/:movieid/:date/:location',
   proxy({
-    target: 'http://localhost:3002',
+    target: 'http://ec2-54-241-179-157.us-west-1.compute.amazonaws.com:3002/',
     changeOrigin: true
   })
 );
 
-// not being used
-// app.get('/api/movies/:movie/:date/:location', (req, res) => {
-//   const { movie, date, location } = req.params;
-//   fetch(`http://localhost:3002/api/movies/${movie}/${date}/${location}`)
-//     .then(response => {
-//       response.json()
-//         .then(data => {
-//           res.send(data);
-//         });
-//     })
-//     .catch(error => {
-//       res.send(500, error);
-//     });
-// });
-
+// app.listen(port, () => console.log('listening on port', process.env.PORT || port));
 app.listen(port, () => console.log('listening on port', port));
-
 module.exports = app;
