@@ -35,7 +35,7 @@ app.use((request, response, next) => {
 app.use(
   '/api/movies/:genre/relatedmovies',
   proxy({
-    target: 'http://ec2-18-221-46-200.us-east-2.compute.amazonaws.com/',
+    target: 'http://ec2-18-221-225-153.us-east-2.compute.amazonaws.com/',
     changeOrigin: true
   })
 );
@@ -63,7 +63,7 @@ app.use(
 app.use(
   '/api/movies/:movieId/summary',
   proxy({
-    target: 'http://ec2-3-16-124-117.us-east-2.compute.amazonaws.com/',
+    target: 'http://ec2-18-219-223-111.us-east-2.compute.amazonaws.com',
     changeOrigin: true
   })
 );
